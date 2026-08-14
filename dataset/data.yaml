@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 2
+names: ['helmet', 'vest']
+
+roboflow:
+  workspace: test1-ut0wa
+  project: safety-vest-safety-helmet
+  version: 11
+  license: Public Domain
+  url: https://universe.roboflow.com/test1-ut0wa/safety-vest-safety-helmet/dataset/11
