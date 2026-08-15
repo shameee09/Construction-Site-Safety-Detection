@@ -19,7 +19,7 @@ st.set_page_config(
 # MODEL PATH
 # ============================================================
 
-MODEL_PATH = r"D:\Construction safety\runs\detect\train-2\weights\best.pt"
+MODEL_PATH = "best.pt"
 
 # ============================================================
 # SIDEBAR
