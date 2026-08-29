@@ -4,9 +4,6 @@ from PIL import Image
 import numpy as np
 import os
 
-# ============================================================
-# PAGE CONFIGURATION
-# ============================================================
 
 st.set_page_config(
     page_title="Construction Safety Detection",
@@ -15,15 +12,11 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ============================================================
 # MODEL PATH
-# ============================================================
 
 MODEL_PATH = "best.pt"
 
-# ============================================================
 # SIDEBAR
-# ============================================================
 
 with st.sidebar:
 
@@ -56,9 +49,7 @@ with st.sidebar:
         "AI Safety Monitoring System"
     )
 
-# ============================================================
 # MAIN HEADER
-# ============================================================
 
 st.title("🦺 Construction Safety Detection")
 
@@ -72,9 +63,7 @@ st.write(
 
 st.divider()
 
-# ============================================================
 # MODEL CHECK
-# ============================================================
 
 if not os.path.exists(MODEL_PATH):
 
@@ -86,9 +75,7 @@ if not os.path.exists(MODEL_PATH):
 
     st.stop()
 
-# ============================================================
 # UPLOAD SECTION
-# ============================================================
 
 st.header("📤 Upload Construction Image")
 
@@ -97,9 +84,7 @@ uploaded_file = st.file_uploader(
     type=["jpg", "jpeg", "png"]
 )
 
-# ============================================================
 # NO IMAGE
-# ============================================================
 
 if uploaded_file is None:
 
@@ -127,9 +112,7 @@ if uploaded_file is None:
         st.markdown("### 4️⃣")
         st.write("View Results")
 
-# ============================================================
 # IMAGE UPLOADED
-# ============================================================
 
 if uploaded_file is not None:
 
@@ -141,9 +124,7 @@ if uploaded_file is not None:
 
     col1, col2 = st.columns(2)
 
-    # ========================================================
     # ORIGINAL IMAGE
-    # ========================================================
 
     with col1:
 
@@ -154,9 +135,7 @@ if uploaded_file is not None:
             use_container_width=True
         )
 
-    # ========================================================
     # DETECTION BUTTON
-    # ========================================================
 
     with col2:
 
@@ -174,27 +153,17 @@ if uploaded_file is not None:
                 "Click the button above to analyze the image."
             )
 
-    # ========================================================
     # RUN DETECTION
-    # ========================================================
 
     if detect_button:
 
         try:
-
-            # ------------------------------------------------
-            # LOAD MODEL
-            # ------------------------------------------------
 
             with st.spinner(
                 "Loading YOLO11 model..."
             ):
 
                 model = YOLO(MODEL_PATH)
-
-            # ------------------------------------------------
-            # PREDICTION
-            # ------------------------------------------------
 
             with st.spinner(
                 "Analyzing construction image..."
@@ -212,10 +181,6 @@ if uploaded_file is not None:
 
                 result = results[0]
 
-            # ------------------------------------------------
-            # DISPLAY RESULT
-            # ------------------------------------------------
-
             annotated_image = result.plot()
 
             with col2:
@@ -228,9 +193,6 @@ if uploaded_file is not None:
                     use_container_width=True
                 )
 
-            # =================================================
-            # COUNT DETECTIONS
-            # =================================================
 
             helmet_count = 0
             vest_count = 0
@@ -252,10 +214,6 @@ if uploaded_file is not None:
             total_objects = (
                 helmet_count + vest_count
             )
-
-            # =================================================
-            # DETECTION SUMMARY
-            # =================================================
 
             st.divider()
 
@@ -284,9 +242,6 @@ if uploaded_file is not None:
                     total_objects
                 )
 
-            # =================================================
-            # SAFETY STATUS
-            # =================================================
 
             st.divider()
 
@@ -328,9 +283,6 @@ if uploaded_file is not None:
 
             st.exception(e)
 
-# ============================================================
-# FOOTER
-# ============================================================
 
 st.divider()
 
