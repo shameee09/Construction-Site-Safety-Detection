@@ -335,6 +335,6 @@ if uploaded_file is not None:
 st.divider()
 
 st.caption(
-    "SafeBuild Intelligence • YOLO11 • Computer Vision • "
+    "SafeBuild Intelligence • "
     "Construction Safety Detection"
 )
