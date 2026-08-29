@@ -36,7 +36,7 @@ with st.sidebar:
     st.subheader("About")
 
     st.write(
-        "Construction Safety Detection uses YOLO11 computer vision "
+        "Construction Safety Detection uses  "
         "to detect construction safety equipment "
         "from uploaded images."
     )
@@ -49,12 +49,6 @@ with st.sidebar:
     st.write("🦺 Safety Vest")
 
     st.divider()
-
-    st.subheader("Model")
-
-    st.write("YOLO11")
-    st.write("Inference: CPU")
-    st.write("Confidence: 20%")
 
     st.divider()
 
@@ -74,7 +68,6 @@ st.subheader(
 
 st.write(
     "Detect safety helmets and high-visibility vests "
-    "using YOLO11 computer vision."
 )
 
 st.divider()
