@@ -173,7 +173,7 @@ if uploaded_file is not None:
 
                 results = model.predict(
                     source=image_array,
-                    conf=0.40,
+                    conf=0.60,
                     imgsz=320,
                     device="cpu",
                     verbose=False
