@@ -139,7 +139,7 @@ if uploaded_file is not None:
 
     with col2:
 
-        st.subheader("🎯 AI Detection")
+        st.subheader("🎯 Detection")
 
         detect_button = st.button(
             "🔍 Run Safety Inspection",
@@ -173,7 +173,7 @@ if uploaded_file is not None:
 
                 results = model.predict(
                     source=image_array,
-                    conf=0.60,
+                    conf=0.20,
                     imgsz=320,
                     device="cpu",
                     verbose=False
